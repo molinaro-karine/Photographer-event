@@ -1,3 +1,9 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
 .header-container {
   height: 5em;
   display: flex;
@@ -14,4 +20,23 @@ header {
 
 .logo {
   object-fit: contain;
+}
+
+.menu-item {
+  font-family: "space-mono";
+  font-size: 16px;
+  font-weight: 400;
+  transition: transform 0.5s ease-in-out;
+}
+
+.navbar .menu-item {
+  padding-left: 2.8em;
+}
+
+.menu-item:hover {
+  transform: scale(1.2);
+}
+
+.navbar-links {
+  cursor: pointer;
 }
