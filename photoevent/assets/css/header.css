@@ -37,6 +37,10 @@ header {
   transform: scale(1.2);
 }
 
+#myBtn {
+  margin: auto;
+}
+
 .navbar-links {
   cursor: pointer;
 }
