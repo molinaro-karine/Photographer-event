@@ -18,7 +18,7 @@
                 'theme_location' => 'main',
                 'menu_class' => 'navbar'
             ]);?>
-            <li><a href="#" id="myBtn" class="menu-item modal-js" role="button" data-toggle="modal">CONTACT</a></li>
+            <li><a href="#" class="menu-item modal-js" id="myBtn" data-toggle="modal" role="button">CONTACT</a></li>
         </div>
     </div>
 </header>
