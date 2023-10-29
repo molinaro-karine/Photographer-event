@@ -20,6 +20,8 @@ header {
 
 .logo {
   object-fit: contain;
+  width: 216px;
+  height: 14px;
 }
 
 .menu-item {
