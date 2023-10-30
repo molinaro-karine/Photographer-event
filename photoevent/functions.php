@@ -33,11 +33,15 @@ add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
 /**
  * Enqueue custom script
  */
-function photoevent_enqueue_scripts() {
-	// Enqueue custom script
-	wp_enqueue_script( 'photo-event-custom-script', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ), '1.0', true );
+function photoevent_scripts() {
+// Charger les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
+	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', 
+    array( 'jquery' ), '1.0.0', true );
+    //Partager et passer des données de PHP vers JavaScript de manière sécurisée
+    wp_localize_script('photoevent', 'photoevent_js', array('ajax_url' => admin_url('admin-ajax.php')));
+
   }
-  add_action( 'wp_enqueue_scripts', 'photoevent_enqueue_scripts' );
+  add_action( 'wp_enqueue_scripts', 'photoevent_scripts' );
 
 // Déclarer un emplacement de menu
 
@@ -51,3 +55,6 @@ function register_my_menus()
     );
 }
 add_action('after_setup_theme', 'register_my_menus');
+
+//Fonction pour récuperer les photos
+
