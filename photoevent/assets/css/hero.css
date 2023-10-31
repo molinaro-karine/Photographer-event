@@ -24,3 +24,13 @@ section.hero {
   width: 100%;
   height: 962px;
 }
+
+@media screen and (max-width: 992px) {
+  .title {
+    font-size: 2em;
+  }
+  .img-hero {
+    height: 253px;
+    width: 379px;
+  }
+}

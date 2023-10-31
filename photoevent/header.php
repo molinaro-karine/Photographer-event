@@ -21,6 +21,24 @@
             <li><a href="#" class="menu-item modal-js" id="myBtn" data-toggle="modal" role="button">CONTACT</a></li>
         </div>
     </div>
+
+          <!-- menu burger -->
+
+          <nav id="site-navigation" class="main-navigation navbar">
+            <div class="menu-mobile">
+                <button class="menu-toggle close" aria-controls="primary-menu" aria-expanded="false">
+                    <div class="line line_one"></div>
+                    <div class="line line_two"></div>
+                    <div class="line line_three"></div>
+                </button>
+            </div>
+            <ul class="open_nav close_nav navbar-links">
+               <?php wp_nav_menu([
+                'theme_location' => 'main',
+                'menu_class' => 'navbar'
+            ]);?>
+                <li class="menu-item nav-item"><a href="#" id="myBtn" class="modal-js" role="button" data-toggle="modal">CONTACT</a></li>
+            </ul>
 </header>
     
 <?php get_template_part( 'template-parts/content-modale' ); ?>

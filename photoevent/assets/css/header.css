@@ -46,3 +46,143 @@ header {
 .navbar-links {
   cursor: pointer;
 }
+
+/* intégration du menu burger pr mobile */
+.menu-mobile {
+  display: none;
+}
+.open_nav {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.open {
+  display: block;
+}
+
+.open_nav {
+  background-color: #e00000;
+  position: absolute;
+  top: 133px;
+  height: 115vw;
+  width: 78vw;
+  padding-top: 40px;
+  z-index: 100;
+}
+.menu-item a {
+  color: #f0eaea;
+  font-weight: 400;
+  font-size: 44px;
+}
+.navbar-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-burger .nav-link {
+  font-size: 1.43em;
+  padding-bottom: 50px;
+}
+
+.menu-toggle {
+  display: block;
+  position: absolute;
+  right: 10%;
+  top: 60px;
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.main-navigation .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  margin: auto;
+  margin-block: -2px;
+  width: 2.5em;
+  z-index: 9999;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+.line_one {
+  transform: translateY(-12px);
+}
+.line_three {
+  transform: translateY(12px);
+}
+.open-nav .line_two {
+  width: 0;
+  background: transparent;
+}
+.open-nav .line_one {
+  transform: rotate(45deg);
+}
+.open-nav .line_three {
+  transform: rotate(-45deg);
+}
+
+/* animation à l'ouverture du menu burger */
+.open_nav.open {
+  animation: slide-down 1s ease;
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Animation à la fermeture du menu burger */
+.close_nav.closing {
+  transform: translateY(-100%) 1s;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: O;
+    transform: translateY(10px);
+  }
+}
+@media screen and (max-width: 992px) {
+  .menu-mobile {
+    display: block;
+  }
+  .header-nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .logo {
+    width: 134px;
+    height: 9px;
+  }
+  .header {
+    width: 375px;
+    height: 72px;
+  }
+  .header-container {
+    margin-left: 31px;
+  }
+  .open_nav {
+    height: 100vh;
+    width: 100%;
+    top: 124px;
+  }
+}

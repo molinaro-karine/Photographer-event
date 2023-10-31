@@ -79,3 +79,9 @@ input.wpcf7-form-control.wpcf7-submit.has-spinner {
   visibility: hidden;
   display: none;
 }
+
+@media screen and (max-width: 992px) {
+  .img-contact {
+    height: 7vh;
+  }
+}

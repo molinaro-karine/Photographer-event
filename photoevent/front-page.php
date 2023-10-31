@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Names: ACCUEIL
+ * Template Name: ACCUEIL
  *
  * @package WordPress
  * @subpackage nathalie-mota theme
@@ -10,17 +10,15 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/content-hero' ); ?>
 
-<?php $loop = new WP_Query( array( 'post_type' => 'photo', 'posts_per_page' => 5, 'paged' => $paged) ); ?>
+<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+    
+    	<h1><?php the_title(); ?></h1>
+    
+    	<?php the_content(); ?>
 
-<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+	<?php endwhile; endif; ?>
 
-<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() . '" title="' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">', '</a></h2>' ); ?>
 
-<div class="entry-content">
-<?php the_content() ; ?>
-</div>
-
-<?php endwhile ; ?>
 <?php get_footer(); ?>
 
 
