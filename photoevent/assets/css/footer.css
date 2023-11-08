@@ -14,3 +14,11 @@
 #menu-item-19 {
   pointer-events: none;
 }
+
+@media screen and (max-width: 768px) {
+  .footer_menu {
+    flex-direction: column;
+    align-items: center;
+    line-height: 36px;
+  }
+}

@@ -4,10 +4,11 @@
   <?php query_posts(
       array(
           'post_type' => 'photo',
-          'showposts' => 1,
+          'posts_per_page' => 1,
           'orderby' => 'rand',
           'terms' => 'paysage',
       )
+      
   ); ?>
   <?php if (have_posts()) :
       while (have_posts()) :

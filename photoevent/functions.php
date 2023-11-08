@@ -26,7 +26,9 @@ function photoevent_enqueue_styles(){
     wp_enqueue_style("style_footer", get_template_directory_uri() . '/assets/css/footer.css');
     wp_enqueue_style("style_contact", get_template_directory_uri() . '/assets/css/contact.css');
     wp_enqueue_style("style_hero", get_template_directory_uri() . '/assets/css/hero.css');
-    wp_enqueue_style("style_single", get_template_directory_uri() . '/assets/css/single-photo.css');
+    wp_enqueue_style("style_front-page", get_template_directory_uri() . '/assets/css/front-page.css');
+    wp_enqueue_style("style_photo", get_template_directory_uri() . '/assets/css/single-photo.css');
+   
 }
 add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
 
@@ -38,7 +40,8 @@ function photoevent_scripts() {
 	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', 
     array( 'jquery' ), '1.0.0', true );
     //Partager et passer des données de PHP vers JavaScript de manière sécurisée
-    wp_localize_script('photoevent', 'photoevent_js', array('ajax_url' => admin_url('admin-ajax.php')));
+    wp_localize_script('photoevent', 'photoevent_js', array(
+        'ajax_url' => admin_url('admin-ajax.php')));
 
   }
   add_action( 'wp_enqueue_scripts', 'photoevent_scripts' );
@@ -55,6 +58,4 @@ function register_my_menus()
     );
 }
 add_action('after_setup_theme', 'register_my_menus');
-
-//Fonction pour récuperer les photos
 

@@ -67,7 +67,8 @@ label {
 textarea.wpcf7-form-control.wpcf7-textarea {
   width: 263px;
   height: 210px;
-  border: 1px solid black !important;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
 input.wpcf7-form-control.wpcf7-submit.has-spinner {
@@ -82,6 +83,16 @@ input.wpcf7-form-control.wpcf7-submit.has-spinner {
 
 @media screen and (max-width: 992px) {
   .img-contact {
-    height: 7vh;
+    height: 13vh;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .modal-content {
+    margin: 0 auto;
+    width: 97%;
+  }
+  .img-contact {
+    height: 9vh;
   }
 }

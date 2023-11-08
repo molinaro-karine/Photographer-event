@@ -27,9 +27,7 @@
           <nav id="site-navigation" class="main-navigation navbar">
             <div class="menu-mobile">
                 <button class="menu-toggle close" aria-controls="primary-menu" aria-expanded="false">
-                    <div class="line line_one"></div>
-                    <div class="line line_two"></div>
-                    <div class="line line_three"></div>
+                 <span class="icons"></span>
                 </button>
             </div>
             <ul class="open_nav close_nav navbar-links">
@@ -39,8 +37,9 @@
             ]);?>
                 <li class="menu-item nav-item"><a href="#" id="myBtn" class="modal-js" role="button" data-toggle="modal">CONTACT</a></li>
             </ul>
+        </nav>
 </header>
     
 <?php get_template_part( 'template-parts/content-modale' ); ?>
 
-    <?php wp_body_open(); ?>
+<?php wp_body_open(); ?>
