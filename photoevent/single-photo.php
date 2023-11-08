@@ -59,5 +59,3 @@ endwhile; // End of the loop.
 </div>
 <?php get_footer(); ?>
 <script>
-let reference_value = "<?php echo esc_attr($reference_value); ?>";
-</script>

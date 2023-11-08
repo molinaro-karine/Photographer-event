@@ -56,11 +56,9 @@ menuDiv.appendChild(button);
 })(jQuery);
 
 //Récupération de la ref du formulaire
-
 jQuery(document).ready(function ($) {
-  // Remplacez 'votre-champ-cf7' par l'ID ou la classe du champ Contact Form 7 que vous souhaitez préremplir
   var champCf7 = $("#photo-ref");
 
-  // Utilisez la valeur récupérée pour préremplir le champ
-  champCf7.val(reference_value);
+  //Valeur transmise depuis PHP pour préremplir le champ
+  champCf7.val(reference_data.reference_value);
 });

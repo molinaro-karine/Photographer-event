@@ -39,6 +39,11 @@ function photoevent_scripts() {
 // Charger les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
 	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', 
     array( 'jquery' ), '1.0.0', true );
+    // Transmettez la valeur de référence depuis PHP au script JavaScript
+    $reference_value = get_field('reference', $post_id);
+    wp_localize_script('photoevent', 'reference_data', array(
+    'reference_value' => esc_attr($reference_value)
+));
     //Partager et passer des données de PHP vers JavaScript de manière sécurisée
     wp_localize_script('photoevent', 'photoevent_js', array(
         'ajax_url' => admin_url('admin-ajax.php')));
