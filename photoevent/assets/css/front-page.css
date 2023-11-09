@@ -37,14 +37,9 @@ section.galerie {
   margin: 50px;
 }
 
-section.galerie {
-  margin: 50px;
-}
-
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   margin: 8%;
 }
 
@@ -75,4 +70,18 @@ a#load-more {
   border-radius: 2px;
   padding: 8px 15px 8px 15px;
   align-items: center;
+}
+
+@media screen and (max-width: 390px) {
+  .image-gallery {
+    /*margin: 0;*/
+  }
+  section.galerie {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  section.image-gallery .size-img img.img-hover {
+    width: 318px;
+    height: 278px;
+  }
 }

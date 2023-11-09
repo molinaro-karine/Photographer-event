@@ -8,12 +8,7 @@
 
 get_header(); ?>
 
-
 <?php get_template_part( 'template-parts/content-hero' ); ?>
-
-
-
-
 
 <section class="galerie">
     <div class="filtres-container">
@@ -56,35 +51,34 @@ get_header(); ?>
         </div>
     </div>
 
-    <!-- affichage des images  -->
+    <!-- affichage des images, définit les paramètres de la requête pour récupérer les articles de type 'photo' -->
     <?php
     $args = array(
         'post_type' => 'photo',
-        'posts_per_page' => 6,
+        'posts_per_page' => 12,
         'orderby' => 'date',
         'order' => 'DESC',
-        'paged' => 1,
+        'paged' => 1,  // Numéro de page initial
     );
     $blog_posts = new WP_Query( $args );
     ?>
+    <!-- Boucle WP_Query pour afficher chaque article dans la section de la galerie -->
     <section class="image-gallery">
     <?php if ($blog_posts->have_posts() ): ?>
-        
-            <?php while ($blog_posts->have_posts() ): $blog_posts->the_post(); ?>
+        <?php while ($blog_posts->have_posts() ): $blog_posts->the_post(); ?>
             <div class="gallery-item">
-            <?php get_template_part( 'template-parts/content-photo' ); ?>
+                <?php get_template_part( 'template-parts/content-photo' ); ?>
             </div>
-            <?php endwhile; ?>
-        
-        </section>
-        
-        <div class="btn__wrapper">
-            <a href="#!" class="loadmore" id="load-more">Load more</a>
-        </div>
+        <?php endwhile; ?>
+    </section>
+
+    <!-- Bouton "Charger plus" pour la pagination infinie,
+    le script JavaScript associé à la pagination infinie sera déclenché pour charger davantage d'articles-->
+    <div class="btn__wrapper">
+        <a href="#!" class="loadmore" id="load-more">Charger plus</a>
+    </div>
     <?php endif; ?>
 </div>
-
-
 
 <?php get_footer(); ?>
 

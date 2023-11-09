@@ -39,7 +39,8 @@ function photoevent_scripts() {
 // Charger les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
 	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', 
     array( 'jquery' ), '1.0.0', true );
-    // Transmettez la valeur de référence depuis PHP au script JavaScript
+    
+    // Transmettre la valeur de référence depuis PHP au script JavaScript
     $reference_value = get_field('reference', $post_id);
     wp_localize_script('photoevent', 'reference_data', array(
     'reference_value' => esc_attr($reference_value)
@@ -64,3 +65,30 @@ function register_my_menus()
 }
 add_action('after_setup_theme', 'register_my_menus');
 
+//Fonction PHP pour gerer la requête Ajax pour la pagination
+
+function load_more_posts() {
+    $page = $_POST['page'];
+  
+    $args = array(
+      'post_type' => 'photo',
+      'posts_per_page' => 2,
+      'orderby' => 'date',
+      'order' => 'DESC',
+      'paged' => $page,
+    );
+  
+    $query = new WP_Query($args);
+  
+    if ($query->have_posts()) :
+      while ($query->have_posts()) : $query->the_post();
+        // Affichez le contenu de la photo
+        get_template_part('template-parts/content-photo');
+      endwhile;
+    endif;
+  
+    wp_die();
+  }
+  
+  add_action('wp_ajax_load_more_posts', 'load_more_posts');
+  add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');

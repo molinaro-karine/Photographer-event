@@ -14,5 +14,6 @@
       while (have_posts()) :
         the_post(); ?>
           <img class="img-hero" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>"> 
-  <?php endwhile;endif; ?>
+  <?php endwhile;
+  endif; ?>
 </section>

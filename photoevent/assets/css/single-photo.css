@@ -76,11 +76,18 @@ h2.photo-titre {
 
 .interested-photo {
   margin-left: 8%;
+  /*ajout miniature photo*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 101px;
 }
 
 .interested-photo-text-button {
   display: flex;
   align-items: center;
+  /*ajout miniature photo*/
+  padding-left: 3%;
 }
 
 button.button.modal-js {
@@ -93,6 +100,18 @@ button.button.modal-js {
   padding: 8px 15px 8px 15px;
   align-items: center;
   margin-left: 20px;
+}
+
+/*miniature slide*/
+.gallery-slide {
+  display: flex;
+  width: 100px;
+  margin-right: 1%;
+}
+.gallery-slide .img-hero {
+  /*miniature photo*/
+  width: 81px;
+  height: 71px;
 }
 
 @media screen and (max-width: 992px) {
@@ -156,7 +175,7 @@ button.button.modal-js {
   .photo-titre {
     line-height: 46px;
   }
-  h2.photo-titre {
-    /*padding-bottom: 49px;*/
-  }
+  /*h2.photo-titre {
+    /*padding-bottom: 49px;
+  }*/
 }

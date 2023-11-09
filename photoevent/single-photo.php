@@ -51,11 +51,21 @@ while (have_posts()) :
 
 endwhile; // End of the loop.
 ?>
+
 <div class="interested-photo">
     <div class="interested-photo-text-button">
         <p class="interested-photo-text">Cette photo vous intéresse ?</p>
         <button class="button modal-js">Contact</button>
     </div>
+	<div class="gallery-slide">
+	<?php if (have_posts()) :
+      while (have_posts()) :
+        the_post(); ?>
+          <img class="img-hero" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>"> 
+  <?php endwhile;endif; ?>
+</div>
+
+
 </div>
 <?php get_footer(); ?>
 <script>
