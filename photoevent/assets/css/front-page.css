@@ -40,7 +40,7 @@ section.galerie {
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
-  margin: 8%;
+  justify-content: center;
 }
 
 .gallery-item {
@@ -51,6 +51,10 @@ section.galerie {
   max-width: 100%;
   height: auto;
 }
+
+/*.image-gallery .gallery-photo {
+  padding: 10px;
+}*/
 .image-gallery .size-img img.img-hover {
   object-fit: cover;
   width: 563px;
@@ -59,6 +63,12 @@ section.galerie {
 /*.gallery-hover-icon {
   display: block;
 }*/
+
+.btn__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
 
 /* bouton "charger plus" */
 a#load-more {
@@ -83,5 +93,16 @@ a#load-more {
   section.image-gallery .size-img img.img-hover {
     width: 318px;
     height: 278px;
+  }
+  .filtres-container {
+    position: relative;
+  }
+  .filtres {
+    flex-direction: column;
+  }
+  .filtre-tri {
+    position: absolute;
+    left: 52px;
+    top: 85px;
   }
 }

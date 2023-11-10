@@ -14,7 +14,7 @@ $article_title = get_the_title();
 
 ?>
 
-<div class="gallery-photo">
+<div class="gallery-item">
     <div class="gallery-img size-img">
         <img id="img-fullscreen" class="img-hover" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
     </div>
