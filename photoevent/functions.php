@@ -28,6 +28,7 @@ function photoevent_enqueue_styles(){
     wp_enqueue_style("style_hero", get_template_directory_uri() . '/assets/css/hero.css');
     wp_enqueue_style("style_front-page", get_template_directory_uri() . '/assets/css/front-page.css');
     wp_enqueue_style("style_photo", get_template_directory_uri() . '/assets/css/single-photo.css');
+    wp_enqueue_style("style_lightbox", get_template_directory_uri() . '/assets/css/lightbox.css');
    
 }
 add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
@@ -37,8 +38,9 @@ add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
  */
 function photoevent_scripts() {
 // Charger les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
-	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', 
-    array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'infinite-pagination', get_stylesheet_directory_uri() . '/scripts/infinite-pagination.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri() . '/scripts/lightbox.js', array( 'jquery' ), '1.0.0', true );
     
     // Transmettre la valeur de référence depuis PHP au script JavaScript
     $reference_value = get_field('reference', $post_id);
@@ -65,30 +67,33 @@ function register_my_menus()
 }
 add_action('after_setup_theme', 'register_my_menus');
 
+
+
 //Fonction PHP pour gerer la requête Ajax pour la pagination
 
 function load_more_posts() {
-    $page = $_POST['page'];
-  
-    $args = array(
-      'post_type' => 'photo',
-      'posts_per_page' => 2,
-      'orderby' => 'date',
-      'order' => 'DESC',
-      'paged' => $page,
-    );
-  
-    $query = new WP_Query($args);
-  
-    if ($query->have_posts()) :
-      while ($query->have_posts()) : $query->the_post();
-        // Affichez le contenu de la photo
-        get_template_part('template-parts/content-photo');
-      endwhile;
-    endif;
-  
-    wp_die();
-  }
-  
-  add_action('wp_ajax_load_more_posts', 'load_more_posts');
-  add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+  $page = $_POST['page'];
+  $exclude_ids = isset($_POST['exclude_ids']) ? explode(',', $_POST['exclude_ids']) : [];
+
+  $args = array(
+    'post_type'      => 'photo',
+    'posts_per_page' => 12,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'paged'          => $page,
+    'post__not_in'   => $exclude_ids, // Exclure les IDs déjà chargés
+  );
+
+  $query = new WP_Query($args);
+
+  if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post();
+      get_template_part('template-parts/content-photo');
+    endwhile;
+  endif;
+
+  wp_die();
+}
+
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');

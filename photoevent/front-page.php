@@ -51,33 +51,39 @@ get_header(); ?>
         </div>
     </div>
 
-    <!-- affichage des images, définit les paramètres de la requête pour récupérer les articles de type 'photo' -->
-    <?php
-    $args = array(
-        'post_type' => 'photo',
-        'posts_per_page' => 12,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'paged' => 1,  // Numéro de page initial
-    );
-    $blog_posts = new WP_Query( $args );
-    ?>
-    <!-- Boucle WP_Query pour afficher chaque article dans la section de la galerie -->
-    <section class="image-gallery">
-    <?php if ($blog_posts->have_posts() ): ?>
-        <?php while ($blog_posts->have_posts() ): $blog_posts->the_post(); ?>
-            <div class="gallery-item">
-                <?php get_template_part( 'template-parts/content-photo' ); ?>
+<!-- affichage des images, définit les paramètres de la requête pour récupérer les articles de type 'photo' -->
+<?php
+$args = array(
+    'post_type'      => 'photo',
+    'posts_per_page' => 12,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'paged'          => 1,  // Numéro de page initial
+);
+
+$blog_posts = new WP_Query($args);
+?>
+
+<section class="image-gallery">
+    <?php if ($blog_posts->have_posts()): ?>
+        <?php while ($blog_posts->have_posts()): $blog_posts->the_post(); ?>
+            <div class="gallery-item lightbox-trigger">
+                <?php get_template_part('template-parts/content-photo'); ?>
+                <div id="lightbox">
+                    <div class="lightbox-content">
+                    <!-- Contenu de la lightbox -->
+                    </div>
+                </div>
             </div>
         <?php endwhile; ?>
-    </section>
-
-    <!-- Bouton "Charger plus" pour la pagination infinie,
-    le script JavaScript associé à la pagination infinie sera déclenché pour charger davantage d'articles-->
-    <div class="btn__wrapper">
-        <a href="#!" class="loadmore" id="load-more">Charger plus</a>
-    </div>
+        <?php wp_reset_postdata(); ?> <!-- Réinitialiser la requête principale -->
     <?php endif; ?>
+</section>
+
+<!-- Bouton "Charger plus" pour la pagination infinie -->
+<div class="btn__wrapper">
+    <a href="#!" class="loadmore" id="load-more">Charger plus</a>
+</div>
 </div>
 
 <?php get_footer(); ?>

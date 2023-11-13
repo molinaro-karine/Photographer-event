@@ -22,7 +22,7 @@
                 <?php the_terms( $post->ID, 'categorie-photo', 'CATEGORIE : ' ); ?>
             </li>
             <li>
-                <p class="format info-text">FORMAT :</p><?php the_terms( $post->ID, 'format-photo', 'FORMAT : ' ); ?>
+                <p class="format info-text">FORMAT :</p><?php the_terms( $post->ID, 'format-photo' ); ?>
             </li>
             <li>
                 <p class="type info-text">TYPE :</p><?php echo get_field('type'); ?>
@@ -65,9 +65,11 @@
             endif; ?>
         </div>
     </div>
-
-    <div class="related-photos">
+    <div class="related-title">
         <h3 class="related-titre">VOUS AIMEREZ AUSSI</h3>
+    </div>
+    <div class="related-photos">
+        
         <div class="related-container">
             <?php
             // Récupérer les catégories actuelles de la photo
@@ -100,7 +102,7 @@
                     </div>
                 <?php endwhile;
             endif;
-            wp_reset_postdata();
+            //wp_reset_postdata();
             ?>
         </div>
     </div>

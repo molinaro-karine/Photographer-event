@@ -150,8 +150,8 @@ button.button.modal-js {
 .related-photos {
   display: flex;
   margin: 40px 40px;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .related-container {
@@ -163,6 +163,12 @@ button.button.modal-js {
 .related-container .img-hero {
   width: 564px;
   height: 495px;
+}
+
+.related-title {
+  /* display: flex; */
+  /* margin: 10px 40px; */
+  margin: 40px 101px;
 }
 
 h3.related-titre {
