@@ -42,15 +42,15 @@ window.onclick = function (event) {
 };
 
 // Sélection du bouton et de la nav
-var button = document.getElementById("myBtn");
-var menuDiv = document.querySelector(".navbar");
+let button = document.getElementById("myBtn");
+let menuDiv = document.querySelector(".navbar");
 
 // Déplacement du bouton dans l'ul
 menuDiv.appendChild(button);
 
 //Récupération de la ref du formulaire
 jQuery(document).ready(function ($) {
-  var champCf7 = $("#photo-ref");
+  let champCf7 = $("#photo-ref");
 
   //Valeur transmise depuis PHP pour préremplir le champ
   champCf7.val(reference_data.reference_value);

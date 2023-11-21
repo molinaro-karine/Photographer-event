@@ -9,6 +9,7 @@
 
 <!-- section information et photo de la single-photo -->
 <div class="photo-container">
+    <!-- Affiche les informations sur la photo -->
     <div class="photo-info">
         <ul class="info-text-photo">
             <li>
@@ -19,7 +20,7 @@
             </li>
             <li>
                 <p class="categorie info-text">CATEGORIE :</p>
-                <?php the_terms( $post->ID, 'categorie-photo', 'CATEGORIE : ' ); ?>
+                <?php the_terms( $post->ID, 'categorie-photo' ); ?>
             </li>
             <li>
                 <p class="format info-text">FORMAT :</p><?php the_terms( $post->ID, 'format-photo' ); ?>
@@ -33,14 +34,14 @@
         </ul>
     </div>
 
-    <?php
 
+     <!-- Récupère les informations du post actuel et extrait la valeur du champ personnalisé (réference de la photo)-->
+    <?php
     while (have_posts()) :
         the_post();
         //extraire la valeur du champ personnalisé depuis le contenu personnalisé associé
         $reference_value = get_field('reference', $post_id);
         // On insère le formulaire de demandes de renseignements
-        // get_field('reference')
         $refPhoto = "";
         if (get_field('reference')) {
             $refPhoto = get_field('reference');
@@ -56,23 +57,16 @@
             <p class="interested-photo-text">Cette photo vous intéresse ?</p>
             <button class="button modal-js">Contact</button>
         </div>
-        <div class="gallery-slide">
-            <?php if (have_posts()) :
-                while (have_posts()) :
-                    the_post(); ?>
-                    <img class="img-hero" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
-            <?php endwhile;
-            endif; ?>
+        <?php get_template_part('template-parts/content-slide'); ?>
+   
+        <div class="related-title">
+            <h3 class="related-titre">VOUS AIMEREZ AUSSI</h3>
         </div>
-    </div>
-    <div class="related-title">
-        <h3 class="related-titre">VOUS AIMEREZ AUSSI</h3>
-    </div>
-    <div class="related-photos">
+        <div class="related-photos">
         
-        <div class="related-container">
+            <div class="related-container">
             <?php
-            // Récupérer les catégories actuelles de la photo
+            // Récupére les catégories actuelles de la photo
             $current_categories = wp_get_post_terms($post->ID, 'categorie-photo', array("fields" => "ids"));
 
             // Paramètres de la requête pour obtenir d'autres photos des mêmes catégories
@@ -93,19 +87,23 @@
 
             $related_photos = new WP_Query($related_args);
 
-            // Afficher les photos liées
+            // Affiche les photos liées
             if ($related_photos->have_posts()) :
                 while ($related_photos->have_posts()) :
                     $related_photos->the_post(); ?>
-                    <div class="gallery-item">
+             
                         <?php get_template_part('template-parts/content-photo'); ?>
-                    </div>
+                
                 <?php endwhile;
             endif;
             //wp_reset_postdata();
             ?>
         </div>
     </div>
-
+    <div class="btn-container">
+    <a href="<?php echo home_url('/'); ?>">
+        Toutes les photos
+    </a>
+</div>
 </div>
 <?php get_footer(); ?>

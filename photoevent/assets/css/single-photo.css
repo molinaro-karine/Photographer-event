@@ -1,15 +1,16 @@
 .photo-container {
   display: flex;
   justify-content: space-evenly;
-  margin: 40px 101px;
+  margin: 34px 101px;
 }
+
 /*.gallery-photo {
   width: 50%;
 }*/
 
-.gallery-hover-icon {
+/*.gallery-hover-icon {
   display: none;
-}
+}*/
 .info {
   width: 70%;
   height: 321px;
@@ -19,9 +20,9 @@
   flex-direction: column;
   justify-content: flex-end;
 }
-img.icon-oeil {
+/*img.icon-oeil {
   background: black;
-}
+}*/
 /*.part {
   flex: 1;
 }*/
@@ -54,12 +55,12 @@ h2.photo-titre {
   font-size: 0.87em;
   letter-spacing: 0.1em;
   line-height: 21px;
-  width: 50%;
+  width: 62%;
   display: flex;
   align-items: flex-end;
   border-bottom: 1px solid;
   margin-right: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 27px;
 }
 
 .photo-container .size-img img.img-hover {
@@ -89,7 +90,7 @@ h2.photo-titre {
   display: flex;
   align-items: center;
   /*ajout miniature photo*/
-  padding-left: 3%;
+  /*padding-left: 3%;*/
   padding-bottom: 48px;
 }
 
@@ -105,18 +106,22 @@ button.button.modal-js {
   margin-left: 20px;
 }
 
-/*miniature slide*/
-.gallery-slide {
+.btn-container {
   display: flex;
-  width: 100px;
-  margin-right: 1%;
-}
-.gallery-slide .img-hero {
-  /*miniature photo*/
-  width: 81px;
-  height: 71px;
+  justify-content: center;
+  margin-top: 2%;
 }
 
+.btn-container a {
+  width: 272px;
+  height: 50px;
+  background: #d8d8d8;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  padding: 8px 15px 8px 15px;
+  align-items: center;
+}
 @media screen and (max-width: 992px) {
   .photo-container {
     flex-direction: column;
@@ -160,7 +165,7 @@ button.button.modal-js {
   gap: 33px;
 }
 
-.related-container .img-hero {
+.related-container .img-slide {
   width: 564px;
   height: 495px;
 }
@@ -212,9 +217,7 @@ h3.related-titre {
   /*h2.photo-titre {
     /*padding-bottom: 49px;
   }*/
-  .gallery-slide {
-    display: none;
-  }
+
   .photo-info {
     border: none;
   }
@@ -228,5 +231,13 @@ h3.related-titre {
   .interested-photo-text-button {
     align-items: baseline;
     padding-left: 9%;
+  }
+  .related-photos {
+    flex-direction: column;
+    margin: 2px;
+  }
+  .related-title {
+    margin: 33px 73px;
+    letter-spacing: 2px;
   }
 }

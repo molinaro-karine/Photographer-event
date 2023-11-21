@@ -26,6 +26,7 @@
   border: 1px solid #000;
   border-radius: 8px;
   font-weight: 500;
+  padding: 8px;
 }
 
 .filtres-cat {
@@ -60,9 +61,14 @@ section.galerie {
   width: 563px;
   height: 495px;
 }
-/*.gallery-hover-icon {
+.gallery-hover-icon {
   display: block;
-}*/
+}
+
+img.icon-fullscreen {
+  width: 30px;
+  height: 30px;
+}
 
 .btn__wrapper {
   display: flex;

@@ -1,9 +1,9 @@
 <?php 
 
-// Ajouter la prise en charge des images mises en avant
+// Ajoute la prise en charge des images mises en avant
 add_theme_support( 'post-thumbnails' );
 
-// Ajouter automatiquement le titre du site dans l'en-tête du site
+// Ajoute automatiquement le titre du site dans l'en-tête du site
 add_theme_support( 'title-tag' );
 
  // ajout de la gestion du menu
@@ -29,6 +29,7 @@ function photoevent_enqueue_styles(){
     wp_enqueue_style("style_front-page", get_template_directory_uri() . '/assets/css/front-page.css');
     wp_enqueue_style("style_photo", get_template_directory_uri() . '/assets/css/single-photo.css');
     wp_enqueue_style("style_lightbox", get_template_directory_uri() . '/assets/css/lightbox.css');
+    wp_enqueue_style("style_slide", get_template_directory_uri() . '/assets/css/slide.css');
    
 }
 add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
@@ -37,24 +38,26 @@ add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
  * Enqueue custom script
  */
 function photoevent_scripts() {
-// Charger les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
+// Charge les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
 	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'infinite-pagination', get_stylesheet_directory_uri() . '/scripts/infinite-pagination.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri() . '/scripts/lightbox.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'slide', get_stylesheet_directory_uri() . '/scripts/slide-photo.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'filter', get_stylesheet_directory_uri() . '/scripts/filter.js', array( 'jquery' ), '1.0.0', true );
     
     // Transmettre la valeur de référence depuis PHP au script JavaScript
     $reference_value = get_field('reference', $post_id);
     wp_localize_script('photoevent', 'reference_data', array(
     'reference_value' => esc_attr($reference_value)
 ));
-    //Partager et passer des données de PHP vers JavaScript de manière sécurisée
+    //Partage et passe des données de PHP vers JavaScript de manière sécurisée
     wp_localize_script('photoevent', 'photoevent_js', array(
         'ajax_url' => admin_url('admin-ajax.php')));
 
   }
   add_action( 'wp_enqueue_scripts', 'photoevent_scripts' );
 
-// Déclarer un emplacement de menu
+// Déclare un emplacement de menu
 
 function register_my_menus()
 {
@@ -97,3 +100,53 @@ function load_more_posts() {
 
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
+
+
+// Filtres
+function filter_photos() {
+  $selectedCategory = isset($_POST['selectedCategory']) ? $_POST['selectedCategory'] : '';
+  $selectedFormat = isset($_POST['selectedFormat']) ? $_POST['selectedFormat'] : '';
+  $selectedOrder = isset($_POST['selectedOrder']) ? $_POST['selectedOrder'] : 'DESC';
+
+  $args = array(
+      'post_type'      => 'photo',
+      'posts_per_page' => 12,
+      'orderby'        => 'date',
+      'order'          => $selectedOrder,
+      'paged'          => 1,
+  );
+
+  if ($selectedCategory && $selectedCategory !== 'all') {
+      $args['tax_query'] = array(
+          array(
+              'taxonomy' => 'categorie-photo',
+              'field'    => 'slug',
+              'terms'    => $selectedCategory,
+          ),
+      );
+  }
+
+  if ($selectedFormat && $selectedFormat !== 'all') {
+      $args['tax_query'][] = array(
+          'taxonomy' => 'format-photo', 
+          'field'    => 'slug',
+          'terms'    => $selectedFormat,
+      );
+  }
+
+  $query = new WP_Query($args);
+
+  if ($query->have_posts()) :
+      while ($query->have_posts()) : $query->the_post();
+          get_template_part('template-parts/content-photo');
+      endwhile;
+  else :
+      echo 'Aucune photo trouvée.';
+  endif;
+
+  wp_die();
+}
+
+add_action('wp_ajax_filter_photos', 'filter_photos');
+add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');

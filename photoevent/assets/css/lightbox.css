@@ -5,21 +5,135 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
+  animation: slide-down 1s ease;
 }
 
 .lightbox-content {
-  background: #fff;
-  /*padding: 20px;*/
-  max-width: 800px;
-  max-height: 80%;
-  overflow: auto;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
 }
 
-/* Style des icônes */
 .lightbox-content img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  font-size: 4em;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.lightbox-close-btn span {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.lightbox-next-btn,
+.lightbox-prev-btn {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.lightbox-close-btn img {
+  margin-right: 10px;
+}
+
+.lightbox-prev-btn {
+  left: 100px;
+}
+
+.lightbox-next-btn {
+  right: 160px;
+}
+
+.lightbox-next-btn span {
+  margin-right: 14px;
+}
+
+.lightbox-prev-btn img,
+.lightbox-next-btn img {
+  width: 100%;
+  height: 100%;
+  margin-right: 14px;
+}
+
+.lightbox-next-btn span,
+.lightbox-prev-btn span {
+  font-weight: 400;
+  width: 74px;
+  height: 18px;
+  font-size: 12px;
+  align-items: center;
+  display: flex;
+}
+
+/*Hover icones*/
+.gallery-item {
+  padding: 10px;
+  position: relative;
+}
+
+.gallery-hover-icon {
+  display: block;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.eye-photo a {
+  display: flex;
+  color: white;
+  width: 54px;
+  position: absolute;
+  top: 215px;
+  /* top: 100%; */
+  right: 223px;
+  opacity: 0;
+  align-items: center;
+}
+
+.gallery-item:hover .eye-photo a {
+  opacity: 1;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.gallery-img-info {
+  display: flex;
+  align-items: center;
+  /* align-content: space-between; */
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 390px) {
+  .lightbox-next-btn,
+  .lightbox-prev-btn {
+    top: 68%;
+  }
+  .lightbox-prev-btn {
+    left: 28px;
+  }
+  .lightbox-next-btn {
+    right: 94px;
+  }
 }
