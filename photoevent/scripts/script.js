@@ -1,6 +1,6 @@
 // MENU BURGER
 
-// récupérez le bouton du menu hamburger et la liste des liens
+// récupére le bouton du menu hamburger et la liste des liens
 const menuBtn = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".open_nav");
 

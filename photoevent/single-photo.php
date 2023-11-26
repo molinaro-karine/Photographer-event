@@ -49,7 +49,7 @@
 
         get_template_part('template-parts/content-photo');
 
-    endwhile; // End of the loop.
+    endwhile; 
     ?>
 
     <div class="interested-photo">
@@ -57,8 +57,9 @@
             <p class="interested-photo-text">Cette photo vous intéresse ?</p>
             <button class="button modal-js">Contact</button>
         </div>
+        <!--Slide-->
         <?php get_template_part('template-parts/content-slide'); ?>
-   
+        <!--End slide-->
         <div class="related-title">
             <h3 class="related-titre">VOUS AIMEREZ AUSSI</h3>
         </div>

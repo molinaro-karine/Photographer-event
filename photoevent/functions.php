@@ -29,8 +29,7 @@ function photoevent_enqueue_styles(){
     wp_enqueue_style("style_front-page", get_template_directory_uri() . '/assets/css/front-page.css');
     wp_enqueue_style("style_photo", get_template_directory_uri() . '/assets/css/single-photo.css');
     wp_enqueue_style("style_lightbox", get_template_directory_uri() . '/assets/css/lightbox.css');
-    wp_enqueue_style("style_slide", get_template_directory_uri() . '/assets/css/slide.css');
-   
+
 }
 add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
 
@@ -39,13 +38,18 @@ add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
  */
 function photoevent_scripts() {
 // Charge les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
-	wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'infinite-pagination', get_stylesheet_directory_uri() . '/scripts/infinite-pagination.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri() . '/scripts/lightbox.js', array( 'jquery' ), '1.0.0', true );
-  wp_enqueue_script( 'slide', get_stylesheet_directory_uri() . '/scripts/slide-photo.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'filter', get_stylesheet_directory_uri() . '/scripts/filter.js', array( 'jquery' ), '1.0.0', true );
-    
-    // Transmettre la valeur de référence depuis PHP au script JavaScript
+  wp_enqueue_script( 'slide', get_stylesheet_directory_uri() . '/scripts/slide-photo.js', array( 'jquery' ), '1.0.0', true );
+  
+  //vérifie si la page actuelle utilise le modèle 'single-photo.php', et si c'est le cas, il ajoute le script 'slide-photo.js
+  if(is_page_template('single-photo.php')){
+    wp_enqueue_script( 'slide', get_stylesheet_directory_uri() . '/scripts/slide-photo.js', array( 'jquery' ), '1.0.0', true );
+    }
+
+    // Transmet la valeur de référence depuis PHP au script JavaScript
     $reference_value = get_field('reference', $post_id);
     wp_localize_script('photoevent', 'reference_data', array(
     'reference_value' => esc_attr($reference_value)

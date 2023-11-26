@@ -53,9 +53,6 @@ section.galerie {
   height: auto;
 }
 
-/*.image-gallery .gallery-photo {
-  padding: 10px;
-}*/
 .image-gallery .size-img img.img-hover {
   object-fit: cover;
   width: 563px;
@@ -89,9 +86,6 @@ a#load-more {
 }
 
 @media screen and (max-width: 390px) {
-  .image-gallery {
-    /*margin: 0;*/
-  }
   section.galerie {
     margin-left: 0px;
     margin-right: 0px;
