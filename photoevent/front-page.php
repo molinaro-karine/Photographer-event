@@ -11,42 +11,31 @@ get_header(); ?>
 
 <section class="galerie">
     <div class="filtres-container">
-        <!-- récupère les catégories -->
         <div class="filtres">
             <!-- categories -->
-            <div class="filtres-cat js-filter">
-                <form id="categories" class="js-filter-form colonne">
-                    <select id="categories-select" name="categories">
-                        <option value="">CATÉGORIE</option>
-                        <option value="all">Toutes les catégories</option>
-                        <option value="reception">Réception</option>
-                        <option value="mariage">Mariage</option>
-                        <option value="concert">Concert</option>
-                        <option value="television">Télévision</option>
-                    </select>
-                </form>
-            </div>
+            <select id="categories-select" name="categories" class="js-filter-form colonne">
+                <option value="">CATÉGORIE</option>
+                <option value="reception">Réception</option>
+                <option value="mariage">Mariage</option>
+                <option value="concert">Concert</option>
+                <option value="television">Télévision</option>
+            </select>
             <!-- formats -->
             <div class="filtre-format">
-                <form id="format" class="js-filter-form colonne">
-                    <select id="format-select" name="format">
-                        <option value="">FORMATS</option>
-                        <option value="all">Tous les formats</option>
-                        <option value="paysage">Paysage</option>
-                        <option value="portrait">Portrait</option>
-                    </select>
-                </form>
+                <select id="format-select" name="format" class="js-filter-form colonne">
+                    <option value="">FORMATS</option>
+                    <option value="paysage">Paysage</option>
+                    <option value="portrait">Portrait</option>
+                </select>
             </div>
         </div>
-        <!-- tri par-->
+        <!-- trier -->
         <div class="filtre-tri">
-            <form id="ordre" class="js-filter-form colonne">
-                <select id="date-select" name="order">
-                    <option value="" selected disabled>Trier par</option>
-                    <option value="DESC">Nouveautés</option>
-                    <option value="ASC">Les plus anciennes</option>
-                </select>
-            </form>
+            <select id="date-select" name="order" class="js-filter-form colonne">
+                <option value="">TRIER PAR</option>
+                <option value="DESC">Nouveautés</option>
+                <option value="ASC">Les plus anciennes</option>
+            </select>
         </div>
     </div>
 

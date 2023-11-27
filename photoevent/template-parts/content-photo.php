@@ -29,7 +29,6 @@ if (!empty($article_title)) {
         <a href="#">
             <img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_fullscreen.png" alt="Icône de plein écran" />
         </a>
-   
     </div>
         <div class="eye-photo">
             <a href="<?php echo get_post_permalink(); ?>">
@@ -40,12 +39,8 @@ if (!empty($article_title)) {
                 </div>
             </a>
         </div>
-
-        <div class="gallery-img-info lightbox-info" data-date=<?php $post_date = get_the_date('Y'); echo $post_date; ?>>
-            
-        </div>
     </div>
 </div>
-    <?php
+<?php
 }
 ?>

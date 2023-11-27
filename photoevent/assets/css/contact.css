@@ -1,6 +1,6 @@
-/*  Modal */
+/***  Modal ***/
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -12,7 +12,7 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Modal Content/Box */
+/*** Modal Content/Box ***/
 .modal-content {
   max-width: 597px;
   max-height: 769px;
@@ -24,7 +24,7 @@
   animation: appear 350ms ease-in 1;
 }
 
-/* Add Animation */
+/*** Ajout Animation ***/
 @keyframes appear {
   0% {
     opacity: 0;
@@ -40,7 +40,7 @@
   margin-top: 18px;
 }
 
-/* formulaire de contact */
+/*** formulaire de contact ***/
 div#wpcf7-f12-o1 {
   margin-top: 52px;
 }
@@ -89,7 +89,7 @@ input.wpcf7-form-control.wpcf7-submit.has-spinner {
 
 @media screen and (max-width: 390px) {
   .modal-content {
-    margin: 0 auto;
+    margin: 46px auto;
     width: 97%;
   }
   .img-contact {

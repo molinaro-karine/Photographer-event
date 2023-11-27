@@ -29,6 +29,7 @@ function photoevent_enqueue_styles(){
     wp_enqueue_style("style_front-page", get_template_directory_uri() . '/assets/css/front-page.css');
     wp_enqueue_style("style_photo", get_template_directory_uri() . '/assets/css/single-photo.css');
     wp_enqueue_style("style_lightbox", get_template_directory_uri() . '/assets/css/lightbox.css');
+    wp_enqueue_style('select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css');
 
 }
 add_action('wp_enqueue_scripts', 'photoevent_enqueue_styles');
@@ -43,6 +44,8 @@ function photoevent_scripts() {
   wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri() . '/scripts/lightbox.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'filter', get_stylesheet_directory_uri() . '/scripts/filter.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'slide', get_stylesheet_directory_uri() . '/scripts/slide-photo.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js', array('jquery'), '4.0.13', true);
+ 
   
   //vérifie si la page actuelle utilise le modèle 'single-photo.php', et si c'est le cas, il ajoute le script 'slide-photo.js
   if(is_page_template('single-photo.php')){

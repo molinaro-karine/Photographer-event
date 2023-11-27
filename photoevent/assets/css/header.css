@@ -27,16 +27,15 @@ header {
   font-family: "space-mono";
   font-size: 16px;
   font-weight: 400;
-  transition: transform 0.5s ease-in-out, font-weight 0.3s ease;
-}
-
-.navbar .menu-item {
-  padding-left: 2.8em;
+  transition: font-weight 0.3s ease;
 }
 
 .menu-item:hover {
   font-weight: 700;
-  transform: scale(1.1);
+}
+
+.navbar .menu-item {
+  padding-left: 2.8em;
 }
 
 #myBtn {
@@ -47,16 +46,9 @@ header {
   cursor: pointer;
 }
 
-/* intégration du menu burger mobile */
+/*** intégration du menu burger mobile ***/
 .menu-mobile {
   display: none;
-}
-
-.open_nav {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .open {
@@ -64,6 +56,10 @@ header {
 }
 
 .open_nav {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   background-color: #e00000;
   position: absolute;
   top: 133px;
@@ -98,23 +94,25 @@ header {
   display: none;
 }
 
-/* Animation à l'ouverture du menu burger */
+/*** Animation à l'ouverture du menu burger ***/
 .open_nav.open {
-  animation: slide-down 1s ease;
+  animation: slide-in 0.5s ease;
+  display: block;
+  margin-top: -8px;
 }
 
-@keyframes slide-down {
+@keyframes slide-in {
   0% {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateX(100%); /* Départ en dehors de l'écran à droite */
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-/* Resposive tablette et mobile*/
+/*** Resposive tablette et mobile ***/
 
 @media screen and (max-width: 992px) {
   .menu-mobile {
@@ -138,6 +136,7 @@ header {
   .open_nav {
     width: 100%;
     top: 120px;
+    height: 184vw;
   }
   .navbar {
     line-height: 100px;
@@ -175,7 +174,7 @@ header {
     margin-top: 50%;
   }
   .open_nav {
-    height: 100vh;
+    height: 264vh;
     width: 100%;
     top: 124px;
   }

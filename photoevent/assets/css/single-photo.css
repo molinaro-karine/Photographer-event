@@ -40,7 +40,7 @@ h2.photo-titre {
   font-size: 0.87em;
   letter-spacing: 0.1em;
   line-height: 21px;
-  width: 62%;
+  width: 50%;
   display: flex;
   align-items: flex-end;
   border-bottom: 1px solid;
@@ -117,7 +117,7 @@ button.button.modal-js:hover {
   transition: background-color 0.5s ease;
 }
 
-/* Styles généraux pour le slide*/
+/*** Styles généraux pour le slide ***/
 
 img.img-slide {
   width: 71px;
@@ -134,17 +134,52 @@ img.img-slide {
   gap: 21px;
 }
 
-@media screen and (max-width: 768px) {
-  .gallery-slide {
-    display: none;
+/**** photos apparentées ****/
+
+.related-photos {
+  display: flex;
+  margin: 40px 89px;
+  align-items: center;
+  justify-content: center;
+}
+
+.related-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 33px;
+}
+
+.related-container .img-slide {
+  width: 564px;
+  height: 495px;
+}
+
+.related-title {
+  margin: 40px 101px;
+}
+
+h3.related-titre {
+  font-size: 18px;
+  font-family: "space-mono";
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1600px) {
+  .photo-container {
+    margin: 35px 41px;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .gallery-slide {
-    display: none;
+@media screen and (max-width: 1148px) {
+  .photo-container {
+    margin: 35px 85px;
+    margin-left: 18px;
+  }
+  .photo-info {
+    margin-left: 89px;
   }
 }
+
 @media screen and (max-width: 992px) {
   .photo-container {
     flex-direction: column;
@@ -178,45 +213,12 @@ img.img-slide {
   }
 }
 
-/**** photos apparentées ****/
-
-.related-photos {
-  display: flex;
-  margin: 40px 40px;
-  align-items: center;
-  justify-content: center;
+@media screen and (max-width: 768px) {
+  .gallery-slide {
+    display: none;
+  }
 }
-
-.related-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 33px;
-}
-
-.related-container .img-slide {
-  width: 564px;
-  height: 495px;
-}
-
-.related-title {
-  /* display: flex; */
-  /* margin: 10px 40px; */
-  margin: 40px 101px;
-}
-
-h3.related-titre {
-  font-size: 18px;
-  font-family: "space-mono";
-  font-weight: 400;
-}
-
 @media screen and (max-width: 680px) {
-  /* .photo-info {
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-  }*/
-
   .info {
     margin-left: 3%;
     border: none;
@@ -247,6 +249,7 @@ h3.related-titre {
   }
   .photo-info {
     border: none;
+    margin-left: 10px;
   }
 
   .interested-photo {
@@ -269,5 +272,9 @@ h3.related-titre {
   .related-title {
     margin: 33px 73px;
     letter-spacing: 2px;
+  }
+
+  .btn-container a {
+    display: none;
   }
 }

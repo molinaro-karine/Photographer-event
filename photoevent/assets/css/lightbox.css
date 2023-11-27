@@ -87,7 +87,7 @@
   display: flex;
 }
 
-/*Hover icones*/
+/** *Hover icones ***/
 .gallery-item {
   padding: 10px;
   position: relative;
@@ -120,7 +120,6 @@
 .gallery-img-info {
   display: flex;
   align-items: center;
-  /* align-content: space-between; */
   justify-content: space-between;
 }
 

@@ -22,6 +22,7 @@ function toggleMenu() {
 toggleMenu();
 
 // Gestion de l'ouverture et fermeture modale contact
+
 let modal = document.getElementById("myModal");
 
 if (modal) {

@@ -22,4 +22,22 @@
     align-items: center;
     line-height: 36px;
   }
+
+  footer {
+    margin-top: -1%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .related-photos {
+    flex-direction: column;
+    margin: 2px;
+    margin-bottom: -14px;
+  }
+  .footer {
+    width: 375px;
+    height: 208px;
+    display: flex;
+    justify-content: center;
+  }
 }

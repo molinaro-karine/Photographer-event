@@ -1,10 +1,11 @@
-/* section des filtres */
+/*** section des filtres ***/
 
 .filtres-container {
   margin-bottom: 4.6em;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+  margin: 20px 13px;
 }
 
 .filtres {
@@ -29,11 +30,55 @@
   padding: 8px;
 }
 
+select2-container .select2-selection--single {
+  height: 43px !important;
+}
+
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected] {
+  background-color: #ffd6d6 !important;
+  color: white;
+}
+
+/*** Couleur pour le texte "Pressing" dans le menu déroulant ***/
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected]:active {
+  background-color: #e00000 !important;
+  color: white;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow
+  b {
+  border-color: #111010 transparent transparent;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: #313144 !important;
+  line-height: 28px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1em;
+}
+
+/*** Ajustement de la largeur du champ d'entrée Select2 ***/
+.custom-select2-filter .select2-selection--single {
+  width: 260px !important;
+}
+
+#format-select {
+  margin-right: 10px;
+}
 .filtres-cat {
   padding-right: 10px;
 }
-
-/* section galerie photos */
+.filtre-format {
+  margin-left: 30px;
+}
+/*** section galerie photos ***/
 section.galerie {
   margin: 50px;
 }
@@ -50,12 +95,11 @@ section.galerie {
 
 .gallery-item img {
   max-width: 100%;
-  height: auto;
+  height: 53vh;
 }
 
 .image-gallery .size-img img.img-hover {
   object-fit: cover;
-  width: 563px;
   height: 495px;
 }
 .gallery-hover-icon {
@@ -73,7 +117,7 @@ img.icon-fullscreen {
   margin-top: 2%;
 }
 
-/* bouton "charger plus" */
+/*** bouton "charger plus" ***/
 a#load-more {
   width: 272px;
   height: 50px;
@@ -83,8 +127,22 @@ a#load-more {
   border-radius: 2px;
   padding: 8px 15px 8px 15px;
   align-items: center;
+  transition: background-color 0.5s ease;
 }
 
+a#load-more:hover {
+  background-color: #000000;
+  color: white;
+}
+
+@media screen and (min-width: 1600px) {
+  .image-gallery .size-img img.img-hover {
+    width: 563px;
+  }
+  .filtres-container {
+    margin: 20px 164px;
+  }
+}
 @media screen and (max-width: 390px) {
   section.galerie {
     margin-left: 0px;
@@ -94,15 +152,42 @@ a#load-more {
     width: 318px;
     height: 278px;
   }
+
+  .image-gallery {
+    margin-top: 148px;
+  }
   .filtres-container {
     position: relative;
+    display: flex;
+    gap: 20px;
+  }
+  .filtres-cat {
+    margin-bottom: 20px;
   }
   .filtres {
     flex-direction: column;
+    display: flex;
+    align-items: baseline;
+    left: -29px;
+    position: absolute;
+    gap: 20px;
   }
   .filtre-tri {
     position: absolute;
-    left: 52px;
-    top: 85px;
+    left: -1px;
+    top: 97px;
+  }
+  .filtres-cat {
+    padding-right: 1px;
+  }
+
+  #format-select,
+  #categories-select,
+  #date-select {
+    width: 357px;
+  }
+
+  .custom-select2-filter .select2-selection--single {
+    width: 100px !important; /* Modifiez la valeur selon vos besoins */
   }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    
+
     <?php wp_head(); ?>
 </head>
 
@@ -21,23 +21,21 @@
             <li><a href="#" class="menu-item modal-js" id="myBtn" data-toggle="modal" role="button">CONTACT</a></li>
         </div>
     </div>
-
-          <!-- menu burger -->
-
-          <nav id="site-navigation" class="main-navigation navbar">
-            <div class="menu-mobile">
-                <button class="menu-toggle close" aria-controls="primary-menu" aria-expanded="false">
-                 <span class="icons"></span>
-                </button>
-            </div>
-            <ul class="open_nav close_nav navbar-links">
-               <?php wp_nav_menu([
-                'theme_location' => 'main',
-                'menu_class' => 'navbar'
+    <!-- menu burger -->
+    <nav id="site-navigation" class="main-navigation navbar">
+        <div class="menu-mobile">
+            <button class="menu-toggle close" aria-controls="primary-menu" aria-expanded="false">
+                <span class="icons"></span>
+            </button>
+        </div>
+        <ul class="open_nav close_nav navbar-links">
+            <?php wp_nav_menu([
+            'theme_location' => 'main',
+            'menu_class' => 'navbar'
             ]);?>
-                <li class="menu-item nav-item"><a href="#" id="myBtn" class="modal-js" role="button" data-toggle="modal">CONTACT</a></li>
-            </ul>
-        </nav>
+            <li class="menu-item nav-item"><a href="#" id="myBtn" class="modal-js" role="button" data-toggle="modal">CONTACT</a></li>
+        </ul>
+    </nav>
 </header>
     
 <?php get_template_part( 'template-parts/content-modale' ); ?>
