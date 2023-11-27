@@ -93,17 +93,11 @@
   position: relative;
 }
 
-.gallery-hover-icon {
-  display: block;
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
 .eye-photo a {
   display: flex;
   color: white;
-  width: 54px;
+  width: 46px;
+  height: 31px;
   position: absolute;
   top: 215px;
   right: 223px;
@@ -111,18 +105,70 @@
   align-items: center;
 }
 
+/* Ajout d'une règle pour le fond au survol de la photo */
 .gallery-item:hover .eye-photo a {
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 1;
   transform: translateX(-50%);
   z-index: 999;
 }
 
-.gallery-img-info {
+.gallery-hover-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item:hover .gallery-hover-icons {
+  opacity: 1;
+}
+
+.icon-fullscreen {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.icon-oeil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery-info {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  gap: 200px;
+  width: 94%;
   justify-content: space-between;
 }
 
+.gallery-cat a {
+  color: white;
+}
+.icon-oeil img {
+  width: 46px;
+  height: 31px;
+  background-color: transparent;
+}
+
+/*.gallery-item:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}*/
 @media screen and (max-width: 390px) {
   .lightbox-next-btn,
   .lightbox-prev-btn {

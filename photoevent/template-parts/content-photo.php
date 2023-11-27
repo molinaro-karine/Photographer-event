@@ -21,25 +21,24 @@ $categories = get_terms(array(
 // Vérifie si le titre n'est pas vide avant de l'afficher
 if (!empty($article_title)) {
     ?>
-    <div class="gallery-item">
-        <div class="gallery-img size-img">
-            <img id="img-fullscreen" class="img-hover" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
-        </div>
-        <div class="gallery-hover-icon lightbox-trigger" data-lightbox-source="<?php echo $thumbnail_url[0]; ?>">
+<div class="gallery-item">
+    <div class="gallery-img size-img">
+        <img id="img-fullscreen" class="img-hover" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
+    </div>
+    <div class="gallery-hover-icons lightbox-trigger" data-lightbox-source="<?php echo $thumbnail_url[0]; ?>">
         <a href="#">
             <img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_fullscreen.png" alt="Icône de plein écran" />
         </a>
-    </div>
-        <div class="eye-photo">
-            <a href="<?php echo get_post_permalink(); ?>">
-                <img class="icon-oeil" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Icône en forme d'oeil" />
-                <div class="container-info">
-                    <p class="gallery-title"><?php echo $article_title; ?></p>
-                    <p class="gallery-cat"><?php echo the_terms(get_the_ID(), 'categorie-photo', false); ?></p>
-                </div>
-            </a>
+        <div class="icon-oeil">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Icône en forme d'oeil" />
+        </div>
+        <div class="gallery-info">
+            <p class="gallery-title"><?php echo $article_title; ?></p>
+            <p class="gallery-cat"><?php echo the_terms(get_the_ID(), 'categorie-photo', false); ?></p>
         </div>
     </div>
+</div>
+
 </div>
 <?php
 }
