@@ -20,7 +20,7 @@
   padding-bottom: 6.1em;
   margin: 15% auto;
   border: 5px solid #000000;
-  width: 80%;
+  width: 80vw;
   animation: appear 350ms ease-in 1;
 }
 
@@ -57,6 +57,7 @@ input.wpcf7-form-control {
   height: 40px;
   border-radius: 8px;
   line-height: 24px;
+  text-transform: capitalize;
 }
 
 label {

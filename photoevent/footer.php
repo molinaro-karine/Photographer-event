@@ -1,5 +1,5 @@
 <?php
-    get_template_part('template-parts/content', 'modale');
+    
     get_template_part('template-parts/content', 'lightbox');
 ?>
 

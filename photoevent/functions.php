@@ -57,11 +57,13 @@ function photoevent_scripts() {
     wp_localize_script('photoevent', 'reference_data', array(
     'reference_value' => esc_attr($reference_value)
 ));
+
     //Partage et passe des données de PHP vers JavaScript de manière sécurisée
     wp_localize_script('photoevent', 'photoevent_js', array(
         'ajax_url' => admin_url('admin-ajax.php')));
 
   }
+  
   add_action( 'wp_enqueue_scripts', 'photoevent_scripts' );
 
 // Déclare un emplacement de menu

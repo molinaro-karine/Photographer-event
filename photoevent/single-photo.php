@@ -52,19 +52,19 @@
     endwhile; 
     ?>
 
+    <!--Slide-->
     <div class="interested-photo">
         <div class="interested-photo-text-button">
             <p class="interested-photo-text">Cette photo vous intéresse ?</p>
             <button class="button modal-js">Contact</button>
         </div>
-        <!--Slide-->
-        <?php get_template_part('template-parts/content-slide'); ?>
-        <!--End slide-->
+            <?php get_template_part('template-parts/content-slide'); ?>
+
+        <!--Zone de photos apparentées-->
         <div class="related-title">
             <h3 class="related-titre">VOUS AIMEREZ AUSSI</h3>
         </div>
         <div class="related-photos">
-        
             <div class="related-container">
             <?php
             // Récupére les catégories actuelles de la photo
@@ -97,7 +97,7 @@
                 
                 <?php endwhile;
             endif;
-            //wp_reset_postdata();
+            wp_reset_postdata();
             ?>
         </div>
     </div>

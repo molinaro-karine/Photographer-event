@@ -59,7 +59,7 @@ select2-container .select2-selection--single {
   .select2-selection__rendered {
   color: #313144 !important;
   line-height: 28px;
-  font-family: "Poppins";
+  font-family: "Poppins" !important;
   font-weight: 500;
   font-size: 1em;
 }

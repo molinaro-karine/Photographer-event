@@ -45,7 +45,7 @@ h2.photo-titre {
   align-items: flex-end;
   border-bottom: 1px solid;
   margin-right: 10px;
-  margin-bottom: 27px;
+  margin-bottom: 14px;
 }
 
 .photo-container .size-img img.img-hover {
@@ -68,6 +68,13 @@ h2.photo-titre {
   justify-content: space-between;
   margin: 40px 101px;
   border-bottom: 1px solid;
+}
+
+.interested-photo-text {
+  font-family: "Poppins";
+  font-weight: 300;
+  font-size: 14px;
+  width: 198px;
 }
 
 .interested-photo-text-button {
@@ -100,11 +107,6 @@ button.button.modal-js:hover {
   margin-top: 2%;
 }
 
-.btn-container a:hover {
-  background-color: #000000;
-  color: white;
-}
-
 .btn-container a {
   width: 272px;
   height: 50px;
@@ -117,11 +119,16 @@ button.button.modal-js:hover {
   transition: background-color 0.5s ease;
 }
 
+.btn-container a:hover {
+  background-color: #000000;
+  color: white;
+}
+
 /*** Styles généraux pour le slide ***/
 
 img.img-slide {
-  width: 71px;
-  height: 81px;
+  width: 81px;
+  height: 71px;
 }
 
 #prevBtn,
@@ -130,8 +137,8 @@ img.img-slide {
 }
 .gallery-navigation {
   display: flex;
-  justify-content: center;
-  gap: 21px;
+  gap: 30px;
+  align-items: center;
 }
 
 /**** photos apparentées ****/
@@ -162,6 +169,10 @@ h3.related-titre {
   font-size: 18px;
   font-family: "space-mono";
   font-weight: 400;
+}
+
+.gallery-cat a {
+  color: #fff;
 }
 
 @media screen and (max-width: 1600px) {

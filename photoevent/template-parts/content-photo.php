@@ -24,7 +24,9 @@ if (!empty($article_title)) {
 <div class="gallery-item">
     <div class="gallery-img size-img">
         <img id="img-fullscreen" class="img-hover" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
+        <div class="overlay"></div>
     </div>
+    
     <div class="gallery-hover-icons lightbox-trigger" data-lightbox-source="<?php echo $thumbnail_url[0]; ?>">
         <a href="#">
             <img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_fullscreen.png" alt="Icône de plein écran" />

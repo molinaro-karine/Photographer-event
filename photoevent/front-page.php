@@ -9,6 +9,7 @@
 get_header(); ?>
 <?php get_template_part( 'template-parts/content-hero' ); ?>
 
+<!-- Selects qui permet de filtrer et trier les photos-->
 <section class="galerie">
     <div class="filtres-container">
         <div class="filtres">
