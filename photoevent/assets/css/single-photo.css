@@ -224,6 +224,21 @@ h3.related-titre {
   }
 }
 
+.icon-oeil,
+.gallery-title,
+.gallery-cat {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.gallery-item:hover .icon-oeil,
+.gallery-item:hover .gallery-title,
+.gallery-item:hover .gallery-cat {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media screen and (max-width: 768px) {
   .gallery-slide {
     display: none;
