@@ -1,7 +1,4 @@
-<?php
-    
-    get_template_part('template-parts/content', 'lightbox');
-?>
+<?php get_template_part('template-parts/content', 'lightbox');?>
 
 <footer class="footer">
     <?php wp_nav_menu([
@@ -12,7 +9,3 @@
 </footer>
   
 <?php wp_footer(); ?>
-
-</body>
-
-</html>

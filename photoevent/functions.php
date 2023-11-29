@@ -41,9 +41,9 @@ function photoevent_scripts() {
 // Charge les fichiers JavaScripts via la fonction WordPress  wp_enqueue_script()
   wp_enqueue_script( 'photoevent', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'infinite-pagination', get_stylesheet_directory_uri() . '/scripts/infinite-pagination.js', array( 'jquery' ), '1.0.0', true );
-  wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri() . '/scripts/lightbox.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'filter', get_stylesheet_directory_uri() . '/scripts/filter.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script( 'slide', get_stylesheet_directory_uri() . '/scripts/slide-photo.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri() . '/scripts/lightbox.js', array( 'jquery' ), '1.0.0', true );
   wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js', array('jquery'), '4.0.13', true);
  
   

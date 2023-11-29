@@ -29,11 +29,6 @@
 }
 
 @media screen and (max-width: 390px) {
-  .related-photos {
-    flex-direction: column;
-    margin: 2px;
-    margin-bottom: -14px;
-  }
   .footer {
     width: 375px;
     height: 208px;

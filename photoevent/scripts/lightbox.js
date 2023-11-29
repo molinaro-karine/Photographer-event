@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Mise à jour du contenu de la lightbox avec les informations de l'image
         lightboxContent.innerHTML = `
-                  <img src="${imgSrc}" alt="Image en plein écran">
-                  <div class="lightbox-info-content">
-                      ${lightboxContent.innerHTML}
-                  </div>
-              `;
+          <img src="${imgSrc}" alt="Image en plein écran">
+          <div class="lightbox-info-content">
+              ${lightboxContent.innerHTML}
+          </div>
+        `;
 
         // Afficher la lightbox
         lightbox.style.display = "flex";
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mettre à jour le contenu de la lightbox avec les informations de l'image suivante
     lightboxContent.innerHTML = `
-          <img src="${imgSrc}" alt="Image en plein écran">
-      `;
+      <img src="${imgSrc}" alt="Image en plein écran">
+    `;
   }
 });

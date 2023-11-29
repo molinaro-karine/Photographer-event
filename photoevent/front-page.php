@@ -6,31 +6,44 @@
  * @subpackage nathalie-mota theme
  */
 
+
+// Récupére les termes de la taxonomie 'categorie-photo'
+$categories = get_terms(array(
+    'taxonomy' => 'categorie-photo',
+    'hide_empty' => false, // Inclure les termes même s'ils n'ont pas de posts associés
+));
+
+// Récupére les termes de la taxonomie 'format-photo'
+$formats = get_terms(array(
+    'taxonomy' => 'format-photo',
+    'hide_empty' => false,
+));
+
 get_header(); ?>
 <?php get_template_part( 'template-parts/content-hero' ); ?>
 
-<!-- Selects qui permet de filtrer et trier les photos-->
+<!-- Selects qui permettent de filtrer et trier les photos-->
 <section class="galerie">
     <div class="filtres-container">
         <div class="filtres">
-            <!-- categories -->
+            <!-- Catégories -->
             <select id="categories-select" name="categories" class="js-filter-form colonne">
                 <option value="">CATÉGORIE</option>
-                <option value="reception">Réception</option>
-                <option value="mariage">Mariage</option>
-                <option value="concert">Concert</option>
-                <option value="television">Télévision</option>
+                <?php foreach ($categories as $category) : ?>
+                    <option value="<?php echo esc_attr($category->slug); ?>"><?php echo esc_html($category->name); ?></option>
+                <?php endforeach; ?>
             </select>
-            <!-- formats -->
+            <!-- Formats -->
             <div class="filtre-format">
                 <select id="format-select" name="format" class="js-filter-form colonne">
                     <option value="">FORMATS</option>
-                    <option value="paysage">Paysage</option>
-                    <option value="portrait">Portrait</option>
+                    <?php foreach ($formats as $format) : ?>
+                        <option value="<?php echo esc_attr($format->slug); ?>"><?php echo esc_html($format->name); ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>
-        <!-- trier -->
+        <!-- Trier -->
         <div class="filtre-tri">
             <select id="date-select" name="order" class="js-filter-form colonne">
                 <option value="">TRIER PAR</option>
@@ -40,14 +53,14 @@ get_header(); ?>
         </div>
     </div>
 
-    <!-- affichage des images, définit les paramètres de la requête pour récupérer les articles de type 'photo' -->
+    <!-- Affichage des images, définit les paramètres de la requête pour récupérer les articles de type 'photo' -->
     <?php
     $args = array(
         'post_type'      => 'photo',
         'posts_per_page' => 12,
         'orderby'        => 'date',
         'order'          => 'DESC',
-        'paged'          => 1,  // Numéro de page initial
+        'paged'          => 1,
     );
 
     $blog_posts = new WP_Query($args);
