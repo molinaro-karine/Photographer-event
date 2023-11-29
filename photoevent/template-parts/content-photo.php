@@ -31,16 +31,17 @@ if (!empty($article_title)) {
         <a href="#">
             <img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_fullscreen.png" alt="Icône de plein écran" />
         </a>
-        <div class="icon-oeil">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Icône en forme d'oeil" />
-        </div>
-        <div class="gallery-info">
-            <p class="gallery-title"><?php echo $article_title; ?></p>
-            <p class="gallery-cat"><?php echo the_terms(get_the_ID(), 'categorie-photo', false); ?></p>
-        </div>
     </div>
-</div>
-
+    <div class="icon-oeil">
+        <a href="<?php echo esc_url(get_permalink()); ?>">">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Icône en forme d'oeil" />
+        </a>
+    </div>
+    <div class="gallery-info">
+        <p class="gallery-title"><?php echo $article_title; ?></p>
+        <p class="gallery-cat"><?php echo the_terms(get_the_ID(), 'categorie-photo', false); ?></p>
+    </div>
+  </div>
 </div>
 <?php
 }

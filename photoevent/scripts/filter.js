@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
   // Initialisation de Select2 sur les listes déroulantes
-  var select2Dropdown = $("#categories-select, #format-select, #date-select");
+  let select2Dropdown = $("#categories-select, #format-select, #date-select");
 
   select2Dropdown.select2();
 
